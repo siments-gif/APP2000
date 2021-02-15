@@ -10,31 +10,28 @@
 
     <div class="row">
         <div class="col-md-4">
-            <h2>Getting Started</h2>
+            <h2>Informasjon om valget</h2>
             <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
+               Her skal det stå en del av informasjonen man skal vite om valget. </br> Hvorfor vi har valget? </br> hvordan valget funker? </br>
+    hva man kan gjøre med sine stemmer.
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Get more libraries</h2>
+            <h2>info om noe</h2>
             <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
+                RESTE FESTE
             </p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
+                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">bruk av link hvis trengs</a>
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Web Hosting</h2>
+            <h2>info om noe annet</h2>
             <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
+                LA OSSS FESTE
             </p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
+                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">bruk av link hvis trengs</a>
             </p>
         </div>
     </div>
