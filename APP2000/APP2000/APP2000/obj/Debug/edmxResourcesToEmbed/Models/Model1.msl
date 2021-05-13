@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="APP2000ModelStoreContainer" CdmEntityContainer="APP2000Entities">
+    <EntitySetMapping Name="TBLUserInfoes">
+      <EntityTypeMapping TypeName="APP2000Model.TBLUserInfo">
+        <MappingFragment StoreEntitySet="TBLUserInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Brukernavn" ColumnName="Brukernavn" />
+          <ScalarProperty Name="Passord" ColumnName="Passord" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
