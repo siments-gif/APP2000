@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Min valgapplikasjon</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Valg", "Home", "Home", "Kandidat", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="glyphicon-home">@Html.ActionLink("Home", "Home", "Home")</li>
+                    <li class="glyphicon-info-sign">@Html.ActionLink("About", "About", "Home")</li>
+                    <li class="glyphicon-cog">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class="glyphicon-kan">@Html.ActionLink("Kandidat", "Kandidat", "Home")</li>
+                </ul>
+
+                <ul class="nav navbar-nav" style="float:right !important">
+                    @if (Session["BrukernavnSS"] != null)
+                    {
+                        <li><p style="color:#fff; margin-top: 15px;">Hei @Session["BrukernavnSS"]</p></li>
+                        <li class="glyphicon-log-out">@Html.ActionLink("Logg ut", "Logout", "Home")</li>
+                    }
+                    else
+                    {
+                        <li class="glyphicon-registration-mark">@Html.ActionLink("Registrer", "Registrer", "Home")</li>
+                        <li class="glyphicon-log-in">@Html.ActionLink("Login", "Login", "Home")</li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
