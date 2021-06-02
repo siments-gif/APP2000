@@ -15,14 +15,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Valg", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Valg", "Home", "Home", "Kandidat", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="glyphicon-home">@Html.ActionLink("Home", "Home", "Home")</li>
                     <li class="glyphicon-info-sign">@Html.ActionLink("About", "About", "Home")</li>
                     <li class="glyphicon-cog">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class="glyphicon-kan">@Html.ActionLink("Kandidat", "Kandidat", "Home")</li>
                 </ul>
 
                 <ul class="nav navbar-nav" style="float:right !important">
