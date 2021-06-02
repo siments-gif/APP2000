@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -89,5 +90,68 @@ namespace APP2000.Controllers
             return View();
         }
 
-    }
+        public ActionResult Kandidat()
+        {
+            return View();
+        }
+
+        public ActionResult GetData()
+        {
+            using (DBModel db = new DBModel())
+            {
+                List<Kandidat> kanList = db.APP2000DB.ToList<Kandidat>();
+                return Json(new { data = kanList }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+        [HttpGet]
+        public ActionResult AddOrEdit(int id = 0)
+        {
+            if (id == 0)
+                return View(new Kandidat());
+            else
+            {
+                using (DBModel db = new DBModel())
+                {
+                    return View(db.APP2000DB.Where(x => x.bruker == id).FirstOrDefault<Kandidat>());
+                }
+            }
+        }
+
+        [HttpPost]
+        public ActionResult AddOrEdit(Kandidat kan)
+        {
+            using (DBModel db = new DBModel())
+            {
+                if (kan.bruker == 0)
+                {
+                    db.APP2000DB.Add(kan);
+                    db.SaveChanges();
+                    return Json(new { success = true, message = "Kandidat nominert" }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    db.Entry(kan).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return Json(new { success = true, message = "Kandidat info oppdatert" }, JsonRequestBehavior.AllowGet);
+                }
+            }
+
+
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            using (DBModel db = new DBModel())
+            {
+                Kandidat kan = db.APP2000DB.Where(x => x.bruker == id).FirstOrDefault<Kandidat>();
+                db.APP2000DB.Remove(kan);
+                db.SaveChanges();
+                return Json(new { success = true, message = "Kandidat slettet" }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+}
 }
