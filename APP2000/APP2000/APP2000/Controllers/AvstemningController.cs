@@ -9,6 +9,7 @@ namespace APP2000.Controllers
     public class AvstemningController : Controller
     {
         // GET: Counter
+        [Authorize]
         public ActionResult Avstemning()
         {
             return View();
