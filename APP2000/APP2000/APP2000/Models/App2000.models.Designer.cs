@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Program Files (x86)\APP2000\APP2000\APP2000\APP2000\Models\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Program Files (x86)\Ny mappe\APP2000\APP2000\APP2000\Models\App2000.models.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -13,10 +13,10 @@ namespace APP2000.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class APP2000Entities : DbContext
+    public partial class APP2000Entities1 : DbContext
     {
-        public APP2000Entities()
-            : base("name=APP2000Entities")
+        public APP2000Entities1()
+            : base("name=APP2000Entities1")
         {
         }
     
@@ -25,6 +25,7 @@ namespace APP2000.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<TBLUserInfo> TBLUserInfoes { get; set; }
+        public virtual DbSet<TBLUserInfo> TBLUserInfo { get; set; }
+        public virtual DbSet<Kandidat> Kandidat { get; set; }
     }
 }

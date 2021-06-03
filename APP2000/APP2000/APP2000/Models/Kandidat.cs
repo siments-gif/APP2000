@@ -12,11 +12,10 @@ namespace APP2000.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TBLUserInfo
+    public partial class Kandidat
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public int Id { get; set; }
-        public string Brukernavn { get; set; }
-        public string Passord { get; set; }
-        public string Role { get; set; }
     }
 }

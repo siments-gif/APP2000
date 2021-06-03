@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using APP2000.Models;
 
 namespace APP2000.Controllers
@@ -14,7 +15,7 @@ namespace APP2000.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View(db.TBLUserInfoes.ToList());
+            return View(db.TBLUserInfo.ToList());
         }
         public ActionResult Registrer()
         {
@@ -24,19 +25,19 @@ namespace APP2000.Controllers
         [HttpPost]
         public ActionResult Registrer (TBLUserInfo tBLUserInfo)
         {
-            if(db.TBLUserInfoes.Any(x=>x.Brukernavn == tBLUserInfo.Brukernavn))
+            if(db.TBLUserInfo.Any(x=>x.Brukernavn == tBLUserInfo.Brukernavn))
             {
                 ViewBag.Notification = "This account has already existed";
                 return View();
             }
             else
             {
-                db.TBLUserInfoes.Add(tBLUserInfo);
+                db.TBLUserInfo.Add(tBLUserInfo);
                 db.SaveChanges();
 
                 Session["IdSS"] = tBLUserInfo.Id.ToString();
                 Session["BrukernavnSS"] = tBLUserInfo.Brukernavn.ToString();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Home", "Home");
             }
             
         }
@@ -44,7 +45,8 @@ namespace APP2000.Controllers
         public ActionResult Logout()
         {
             Session.Abandon();
-            return RedirectToAction("Index", "Home");
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login", "Home");
         }
 
         [HttpGet]
@@ -57,12 +59,12 @@ namespace APP2000.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(TBLUserInfo tBLUserInfo)
         {
-            var checklogin = db.TBLUserInfoes.Where(x => x.Brukernavn.Equals(tBLUserInfo.Brukernavn)|| x.Passord.Equals(tBLUserInfo.Passord)).FirstOrDefault();
+            var checklogin = db.TBLUserInfo.Where(x => x.Brukernavn.Equals(tBLUserInfo.Brukernavn)|| x.Passord.Equals(tBLUserInfo.Passord)).FirstOrDefault();
             if (checklogin != null)
             {
                 Session["IdSS"] = tBLUserInfo.Id.ToString();
                 Session["BrukernavnSS"] = tBLUserInfo.Brukernavn.ToString();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("About", "Home");
             }
             else
             {

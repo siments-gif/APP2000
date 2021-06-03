@@ -81,3 +81,7 @@ D:\Program Files (x86)\APP2000\APP2000\APP2000\APP2000\bin\EntityFramework.dll
 D:\Program Files (x86)\APP2000\APP2000\APP2000\APP2000\bin\EntityFramework.SqlServer.dll
 D:\Program Files (x86)\APP2000\APP2000\APP2000\APP2000\bin\EntityFramework.xml
 D:\Program Files (x86)\APP2000\APP2000\APP2000\APP2000\bin\EntityFramework.SqlServer.xml
+D:\Program Files (x86)\Ny mappe\APP2000\APP2000\APP2000\obj\Debug\APP2000.dll
+D:\Program Files (x86)\Ny mappe\APP2000\APP2000\APP2000\obj\Debug\APP2000.pdb
+D:\Program Files (x86)\Ny mappe\APP2000\APP2000\APP2000\obj\Debug\APP2000.csprojAssemblyReference.cache
+D:\Program Files (x86)\Ny mappe\APP2000\APP2000\APP2000\obj\Debug\APP2000.csproj.CoreCompileInputs.cache
