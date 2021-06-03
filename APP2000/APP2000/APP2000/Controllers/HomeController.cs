@@ -90,6 +90,7 @@ namespace APP2000.Controllers
             return View();
         }
 
+[Authorize]
         public ActionResult Kandidat()
         {
             return View();
