@@ -17,6 +17,7 @@ namespace APP2000.Models
         public int Id { get; set; }
         public string Brukernavn { get; set; }
         public string Passord { get; set; }
+        public string RePassord { get; set; }
         public string Role { get; set; }
     }
 }
