@@ -17,26 +17,35 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Valg", "Home", "Home", "Kandidat", new { area = "" }, new { @class = "navbar-brand" })
+               @Html.ActionLink("Valg", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="glyphicon-home">@Html.ActionLink("Home", "Home", "Home")</li>
-                    <li class="glyphicon-info-sign">@Html.ActionLink("About", "About", "Home")</li>
-                    <li class="glyphicon-cog">@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li class="glyphicon-kan">@Html.ActionLink("Kandidat", "Kandidat", "Home")</li>
+                    @if (Session["BrukernavnSS"] != null)
+                    {
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Kandidat", "Kandidat", "Home")</li>
+                        <li>@Html.ActionLink("Ävstemning", "Avstemning", "Home")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        
+                    }
                 </ul>
 
                 <ul class="nav navbar-nav" style="float:right !important">
                     @if (Session["BrukernavnSS"] != null)
                     {
                         <li><p style="color:#fff; margin-top: 15px;">Hei @Session["BrukernavnSS"]</p></li>
-                        <li class="glyphicon-log-out">@Html.ActionLink("Logg ut", "Logout", "Home")</li>
+                        <li>@Html.ActionLink("Logg ut", "Logout", "Home")</li>
                     }
                     else
                     {
-                        <li class="glyphicon-registration-mark">@Html.ActionLink("Registrer", "Registrer", "Home")</li>
-                        <li class="glyphicon-log-in">@Html.ActionLink("Login", "Login", "Home")</li>
+                        <li>@Html.ActionLink("Registrer", "Registrer", "Home")</li>
+                        <li>@Html.ActionLink("Login", "Login", "Home")</li>
                     }
 
                 </ul>
