@@ -1,10 +1,15 @@
 ﻿@{
     ViewBag.Title = "Kandidat List";
 }
+//Denne filen viser en liste over alle registrerte kandidater
+//Legge til ny og ender på eksisterende kandidater
+//slette kandidater
 
 <h2>Kandidat Nominering og liste av kandidater</h2>
 
+//Knapp som opener popupform for å nominere ny kandidat
 <a class="btn btn-success" style="margin-bottom:10px" onclick="PopupForm('@Url.Action("AddOrEdit","Home")')"><i class="fa fa-plus"></i> Nominer bruker</a>
+//table for liste over kandidater
 <table id="kandidatTable" class="table table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
@@ -27,6 +32,7 @@
     <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
 
     <script>
+        //legger til data til tabelen fra databasen
         var Popup, dataTable;
         $(document).ready(function () {
             dataTable =  $("#kandidatTable").DataTable({
@@ -54,6 +60,7 @@
             });
         });
 
+        //function for popup vinduet 
         function PopupForm(url) {
             var formDiv = $('<div/>');
             $.get(url)
@@ -73,7 +80,7 @@
                 });
             });
         }
-
+      
         function SubmitForm(form) {
             $.validator.unobtrusive.parse(form);
             if($(form).valid()){
@@ -98,7 +105,8 @@
             }
             return false;
         }
-
+        
+        //Delete function
         function Delete(id) {
             if(confirm('Vil du slette denne kandidaten?'))
             {

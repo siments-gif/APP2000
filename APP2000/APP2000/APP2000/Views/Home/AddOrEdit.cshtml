@@ -3,6 +3,7 @@
     Layout = null;
 }
 
+//Legger inn tekst feltene i nominering og edit popup vinduene
 @using (Html.BeginForm("AddOrEdit", "Kandidat", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
 {
     @Html.HiddenFor(model => model.bruker)
@@ -33,7 +34,7 @@
         @Html.LabelFor(model => model.bilde, new { @class = "control-label" })
         @Html.EditorFor(model => model.bilde, new { htmlAttributes = new { @class = "form-control" } })
     </div>
-
+    //Submit og reset knapper
     <div class="form-group">
         <input type="submit" value="Submit" class="btn btn-primary" />
         <input type="reset" value="Reset" class="btn" />
