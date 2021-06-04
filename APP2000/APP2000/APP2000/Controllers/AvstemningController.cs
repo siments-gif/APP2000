@@ -22,6 +22,8 @@ namespace APP2000.Controllers
         {
             return View();
         }
+
+        // Counter funksjon
         public class Counter
         {
             public Counter(string name, int count)
@@ -39,7 +41,7 @@ namespace APP2000.Controllers
             }
         }
 
-
+        // Refererer programmet inn i view, med funksjoner
         class Program
         {
             static void Main(String[] args)

@@ -17,11 +17,14 @@ namespace APP2000.Controllers
         {
             return View(db.TBLUserInfo.ToList());
         }
+
+        // Referanse til registrering view
         public ActionResult Registrer()
         {
             return View();
         }
 
+        // Registrering format, med post funksjon
         [HttpPost]
         public ActionResult Registrer (TBLUserInfo tBLUserInfo)
         {
@@ -42,6 +45,7 @@ namespace APP2000.Controllers
             
         }
 
+        // Log ut funksjon
         public ActionResult Logout()
         {
             Session.Abandon();
@@ -55,6 +59,7 @@ namespace APP2000.Controllers
             return View();
         }
 
+        // Login funksjon i applikasjon
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(TBLUserInfo tBLUserInfo)
@@ -73,31 +78,37 @@ namespace APP2000.Controllers
             return View();
         }
 
+        // referanse til home view
         public ActionResult Home()
         {
             return View();
         }
 
+        // referanse til about view
         public ActionResult About()
         {
-            ViewBag.Message = "Her kan man finne information om valget";
+            ViewBag.Message = "Her kan man finne information litt informasjon om oppgaven og gruppen";
 
             return View();
         }
 
+        // referanse til contact view
         public ActionResult Contact()
         {
-            ViewBag.Message = "Find contact information";
+            ViewBag.Message = "Finn kontakt informasjon";
 
             return View();
         }
 
-[Authorize]
+        // passer på at man må være logget inn for å gå til nettsiden (Lagt til i web.config fil for å gjøre det sånn)
+        [Authorize]
         public ActionResult Kandidat()
         {
             return View();
         }
 
+
+        // Hente ut kandidatene i modellen
         public ActionResult GetData()
         {
             using (DBModel db = new DBModel())
@@ -108,6 +119,7 @@ namespace APP2000.Controllers
         }
 
 
+        // Finn og sjekke kandidat for legge til eller endre
         [HttpGet]
         public ActionResult AddOrEdit(int id = 0)
         {
@@ -122,6 +134,8 @@ namespace APP2000.Controllers
             }
         }
 
+
+        // Legge til eller endre kandidat i databasemodell
         [HttpPost]
         public ActionResult AddOrEdit(Kandidat kan)
         {
@@ -144,6 +158,7 @@ namespace APP2000.Controllers
 
         }
 
+        // Slette kandidat fra database
         [HttpPost]
         public ActionResult Delete(int id)
         {

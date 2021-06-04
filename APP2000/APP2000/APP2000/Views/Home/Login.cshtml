@@ -11,6 +11,7 @@
 {
     @Html.AntiForgeryToken()
     
+    // Setter opp div for selve forum for alle logg inn egenskapene
 <div class="form-horizontal">
     <h4>Login</h4>
     <hr />
@@ -46,7 +47,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Tilbake til hjemmeside", "Home")
 </div>
 
 @section Scripts {
